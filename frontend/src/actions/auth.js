@@ -14,7 +14,7 @@ export const login = (email, password) =>async dispatch =>{
             'Content-Type':'application/json'
         }
     }
-    const boyd = JSON.stringify({
+    const body = JSON.stringify({
         email, password
     });
     try {
@@ -33,7 +33,7 @@ export const login = (email, password) =>async dispatch =>{
         dispatch(setAlert('Error Authenticating','error'));
     }
 }
-export const signup = ({name,email,password,password2}) => {
+export const signup = async({name,email,password,password2},dispatch) => {
     const config = {
         headers: {
             'Content-Type':'application/json'
@@ -58,7 +58,7 @@ export const signup = ({name,email,password,password2}) => {
         dispatch(setAlert('Error Authenticating','error'));
     }
 }
-export const logout = () => {
+export const logout = (dispatch) => {
     dispatch(setAlert('logout successful.','success'));
     dispatch({type:LOGOUT});
 }
