@@ -9,7 +9,7 @@ import Login from './containers/Lognin';
 import ListingDetail from './containers/ListingDetail';
 import Contact from './containers/Contact';
 import NotFound from './components/NotFound'
-import './saas/main.scss'
+
 import { Provider } from 'react-redux';
 import store from './store';
 
