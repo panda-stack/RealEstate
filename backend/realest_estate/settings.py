@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'realtors',
     'listings',
+    'contacts',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,10 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_ALLOW_ALL = True
 FILE_UPLOAD_PERMISSIONS = 0o640
 AUTH_USER_MODEL = 'accounts.UserAccount'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'sharp.blider2050@gmail.com'
+EMAIL_HOST_PASSWORD = 'hhnxilldsxoclxvl'
+EMAIL_USE_TLS = True
