@@ -5,7 +5,6 @@ import {
     LOGIN_FAIL,
     LOGOUT
 } from '../actions/types';
-import store from '../store';
 
 const initialState = {
     token: localStorage.getItem('token'),

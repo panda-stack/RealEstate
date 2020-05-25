@@ -5,11 +5,10 @@ import Home from './containers/Home';
 import About from './containers/About';
 import Listing from './containers/Listing';
 import Signup from './containers/Signup';
-import Login from './containers/Lognin';
+import Login from './containers/Login';
 import ListingDetail from './containers/ListingDetail';
 import Contact from './containers/Contact';
 import NotFound from './components/NotFound'
-
 import { Provider } from 'react-redux';
 import store from './store';
 

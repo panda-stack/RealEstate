@@ -8,7 +8,7 @@ import {
     LOGOUT
 } from './types';
 
-export const login = (email, password) =>async dispatch =>{
+export const login = (email, password) =>async dispatch =>{ 
     const config = {
         headers: {
             'Content-Type':'application/json'
@@ -17,9 +17,10 @@ export const login = (email, password) =>async dispatch =>{
     const body = JSON.stringify({
         email, password
     });
+    
     try {
         const res = await axios.post('/api/token',body,config);
-
+        
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
@@ -30,7 +31,7 @@ export const login = (email, password) =>async dispatch =>{
         dispatch({
             type:LOGIN_FAIL
         });
-        dispatch(setAlert('Error Authenticating','error'));
+        dispatch(setAlert('Error Authenticating','warning'));
     }
 }
 export const signup = async({name,email,password,password2},dispatch) => {
@@ -39,12 +40,12 @@ export const signup = async({name,email,password,password2},dispatch) => {
             'Content-Type':'application/json'
         }
     }
-    const body = JSON.stringify({
+    const body = {
         name, email, password, password2
-    });
+    };
+    
     try {
-        const res = await axios.post('/api/token/accounts/signup',body,config);
-
+        const res = await axios.post('/api/accounts/signup',body,config);
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: res.data
@@ -52,10 +53,11 @@ export const signup = async({name,email,password,password2},dispatch) => {
         dispatch(login(email,password));
     } 
     catch(err){
+        console.log(err);
         dispatch({
             type:SIGNUP_FAIL
         });
-        dispatch(setAlert('Error Authenticating','error'));
+        dispatch(setAlert('Error Authenticating','warning'));
     }
 }
 export const logout = (dispatch) => {

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../actions/auth';
-import Alert from './Alert';
+import CustomAlert from './Alert';
 import PropTypes from 'prop-types';
 import { Navbar, Nav } from 'react-bootstrap'
 
@@ -30,6 +30,7 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
                     }                 
                 </Nav>
             </Navbar>
+            <CustomAlert />
         </div>
     )
 }
