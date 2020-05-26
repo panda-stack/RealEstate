@@ -24,12 +24,14 @@ export default function(state = initialState, action){
                 token: payload.access
             }
         case SIGNUP_SUCCESS:
+            debugger
             return {
                 ...state,
                 isAuthenticated: false,
                 loading:true
             }
         case SIGNUP_FAIL:
+            
         case LOGIN_FAIL:
         case LOGOUT:
             localStorage.removeItem('token');

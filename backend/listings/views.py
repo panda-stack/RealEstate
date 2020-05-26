@@ -24,10 +24,10 @@ class SearchView(APIView):
     def post(self,request,format=None):
         queryset = Listing.objects.order_by('-list_date').filter(is_published=True)
         data = self.request.data
-
+        
         sale_type = data['sale_type']
         queryset = queryset.filter(sale_type__iexact=sale_type)
-
+        
         price = data['price']
         if price =='$0+':
             price = 0
@@ -62,10 +62,10 @@ class SearchView(APIView):
             bedrooms = 5
         
         queryset = queryset.filter(bedrooms__gte=bedrooms)
-
+        
         home_type = data['home_type']
         queryset = queryset.filter(home_type__iexact=home_type)
-
+       
         bathrooms = data['bathrooms']
 
         if bathrooms == '0+':
@@ -80,7 +80,7 @@ class SearchView(APIView):
             bathrooms = 4
         
         queryset = queryset.filter(bathrooms__gte=bathrooms)
-
+        
         sqft = data['sqft']
 
         if sqft == '1000+':
@@ -118,7 +118,6 @@ class SearchView(APIView):
                 if num_days > days_passed:
                     slug = query.slug
                     queryset = queryset.exclude(slug__iexact=slug)
-        
         has_photos = data['has_photos']
         if has_photos == '1+':
             has_photos = 1
@@ -180,10 +179,14 @@ class SearchView(APIView):
                 queryset = queryset.exclude(slug__iexact=slug)
         
         open_house = data['open_house']
-        queryset = queryset.filter(open_house__iexact=open_house)
-
+        if open_house == 'false':
+            open_house = False
+        else:
+            open_house = True
+        queryset = queryset.filter(open_house__exact=open_house)
+        
         keywords = data['keywords']
-        queryset = queryset.filter(description__icontain=keywords)
+        queryset = queryset.filter(description__icontains=keywords)
 
         serializer = ListingSerializer(queryset, many=True)
         

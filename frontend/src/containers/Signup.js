@@ -22,10 +22,13 @@ const Signup = ({ signup, setAlert, isAuthenticated }) => {
     })
     const onSubmit = (e) => {
         e.preventDefault();
-        if (password !== password2)
+        if (password !== password2){
             setAlert('Passwords do not match.', 'warning');
+        }
         else
-            signup({ name, email, password, password2 });
+        {
+            signup( name, email, password, password2 );
+        }
     };
     if (isAuthenticated)
         return <Redirect to='/' />
@@ -41,7 +44,7 @@ const Signup = ({ signup, setAlert, isAuthenticated }) => {
                         </Form.Group>
                         <Form.Group controlId="formBasicName">
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="" placeholder="Enter name" name="name" onChange={e => onChange(e)} value={name} />
+                            <Form.Control type="text" placeholder="Enter name" name="name" onChange={e => onChange(e)} value={name} />
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">

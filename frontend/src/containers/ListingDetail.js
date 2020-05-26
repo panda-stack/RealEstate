@@ -1,10 +1,10 @@
 import React from 'react';
 
-const ListingDetail = () => {
+const Listing = () => {
     return(
         <div>
-            ListingDetail
+            Listing
         </div>
     )
 }
-export default ListingDetail;
+export default Listing

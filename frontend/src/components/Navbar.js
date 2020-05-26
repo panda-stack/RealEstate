@@ -11,7 +11,7 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
     return (
         <div>
             <Navbar bg="primary" variant="dark">
-                <Navbar.Brand>Realest State</Navbar.Brand>
+                <Navbar.Brand>Real Estate</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/listing">Listings</Nav.Link>

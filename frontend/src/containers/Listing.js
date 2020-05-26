@@ -7,4 +7,4 @@ const Listing = () => {
         </div>
     )
 }
-export default Listing;
+export default Listing
