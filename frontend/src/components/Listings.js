@@ -4,7 +4,7 @@ import {Row, Col} from 'react-bootstrap';
 
 
 const Listings = ({ listings }) => {
-    console.log(listings);
+    
     const getListings = () => {
         let listingsOnPage = [];
         let result = [];
@@ -37,7 +37,7 @@ const Listings = ({ listings }) => {
                         {listingsOnPage[i+1] ? listingsOnPage[i+1] : null }
                     </Col>
                     <Col>
-                        {listingsOnPage[i+2] ? listingsOnPage[i+1] : null }
+                        {listingsOnPage[i+2] ? listingsOnPage[i+2] : null }
                     </Col>
                 </Row>
             )
