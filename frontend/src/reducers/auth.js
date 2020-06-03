@@ -11,7 +11,11 @@ const initialState = {
     isAuthenticated:null,
     loading: false
 };
-export default function(state = initialState, action){
+export default function(state, action){
+    debugger
+    if(state === undefined) {
+        state = initialState;
+    }
     const {type, payload} = action;
 
     switch(type){
@@ -23,17 +27,16 @@ export default function(state = initialState, action){
                 loading: false,
                 token: payload.access
             }
-        case SIGNUP_SUCCESS:
-            debugger
+        case SIGNUP_SUCCESS: 
             return {
                 ...state,
                 isAuthenticated: false,
                 loading:true
             }
-        case SIGNUP_FAIL:
-            
-        case LOGIN_FAIL:
+        // case SIGNUP_FAIL:   
+        // case LOGIN_FAIL:
         case LOGOUT:
+            debugger
             localStorage.removeItem('token');
             return {
                 ...state,
@@ -42,6 +45,6 @@ export default function(state = initialState, action){
                 loading:false
             }
         default:
-            return state
+            return state;
     }
 }

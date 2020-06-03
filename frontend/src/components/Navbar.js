@@ -14,7 +14,7 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
                 <Navbar.Brand>Real Estate</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="/listing">Listings</Nav.Link>
+                    <Nav.Link href="/listings">Listings</Nav.Link>
                     <Nav.Link href="/about">About</Nav.Link>
                     <Nav.Link href="/contact">Contact</Nav.Link>
                 </Nav>

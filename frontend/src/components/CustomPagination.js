@@ -12,9 +12,7 @@ const CustomPagination = (props) => {
         for (let i = 0; i < props.count; i += itemsPerPage) {
             const page = pageNumber;
             let content = null;
-
             if ( props.active === page ){
-                
                 content = (
                     <div key={i} className={styles.activepageNumber}>
                         {pageNumber}

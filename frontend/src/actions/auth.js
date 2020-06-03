@@ -9,6 +9,7 @@ import {
 } from './types';
 
 export const login = (email, password) =>async dispatch =>{ 
+    
     const config = {
         headers: {
             'Content-Type':'application/json'
@@ -52,15 +53,17 @@ export const signup = (name,email,password,password2)=> async dispatch => {
         });
         dispatch(login(email,password));
     } 
-    catch(err){
-        
+    catch(err){  
         dispatch({
             type:SIGNUP_FAIL
         });
         dispatch(setAlert('Error Authenticating','warning'));
     }
 }
-export const logout = (dispatch) => {
-    dispatch(setAlert('logout successful.','success'));
-    dispatch({type:LOGOUT});
+export const logout = () => dispatch => {
+    dispatch(setAlert('Error Authenticating','warning'));
+    dispatch({
+        type:LOGOUT
+    });
+    
 }

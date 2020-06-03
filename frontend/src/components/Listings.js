@@ -2,9 +2,7 @@ import React from 'react';
 import CustomCard from './CustomCard';
 import {Row, Col} from 'react-bootstrap';
 
-
-const Listings = ({ listings }) => {
-    
+const Listings = ({ listings }) => {  
     const getListings = () => {
         let listingsOnPage = [];
         let result = [];
